@@ -36,7 +36,7 @@ check.onclick = () => {
     input.style.backgroundColor = ""
 
     if (input.value < 1 || input.value > 50) {
-        message.innerHTML = `Please<br>Between 1 and 50`
+        message.innerHTML = `Please!<br>Between 1 and 50`
         input.style.backgroundColor = "red"
         document.body.style.backgroundColor = "#222"
 
@@ -84,7 +84,7 @@ check.onclick = () => {
             } else if (input.value > random) {
                 point--
                 score.innerHTML = point
-                document.body.style.backgroundColor = "orange"
+                document.body.style.backgroundColor = "coral"
                 message.innerHTML = `${input.value} is high`
                 input.value = ""
                 input.focus()
@@ -92,7 +92,7 @@ check.onclick = () => {
             } else if (input.value < random) {
                 point--
                 score.innerHTML = point
-                document.body.style.backgroundColor = "blue"
+                document.body.style.backgroundColor = "dodgerblue"
                 message.innerHTML = `${input.value} is low`
                 input.value = ""
                 input.focus()
@@ -124,7 +124,7 @@ again.onclick = () => {
     message.innerHTML = "Start guessing..."
     score.innerHTML = "10"
 
-    input.style.backgroundColor = ""
+    input.style.backgroundColor = "none"
     input.disabled = false
     input.value = ""
     input.focus()
