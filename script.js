@@ -1,5 +1,5 @@
 const check = document.querySelector(".check");
-const again = document.querySelector(".again");
+const again = document.querySelector("#again");
 const input = document.querySelector(".guess");
 const message = document.querySelector(".message");
 const score = document.querySelector(".score");
