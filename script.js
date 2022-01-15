@@ -5,10 +5,13 @@ const message = document.querySelector(".message");
 const score = document.querySelector(".score");
 const highscore = document.querySelector(".highscore")
 
+const result = document.querySelector(".number")
+
 let playing = true
 let random;
 
 let point = 10;
+// console.log(point)
 
 again.style = "display:none"; //Again tuşunu gizleme
 input.focus(); //Sayfa açıldığında input girişini seçme
@@ -32,34 +35,74 @@ secretNumber()
 check.onclick = () => {
     input.style.backgroundColor = ""
 
-    if (point > 1 && playing && !input.value == "") {
+    if (input.value < 1 || input.value > 50) {
+        message.innerHTML = `Please<br>Between1 and 50`
+        input.style.backgroundColor = "red"
+        document.body.style.backgroundColor = "#222"
 
-        if (input.value < 1 || input.value > 50) {
-            message.innerHTML = `Please<br>Between1 and 50`
-            input.style.backgroundColor = "red"
-            document.body.style.backgroundColor = "#222"
+    } else {
+        if (point == 0) {
+            document.body.style.backgroundColor = "red"
+            message.innerHTML = "Game Over!!!"
+            result.innerHTML = random
+            score.innerHTML = 0
+            input.disabled = true
+            input.value = ""
+            check.style = "display:none"
+            again.style = "display:block"
+            playing = false
 
-        } else {
-            point--
-            score.innerHTML = point
+        } else if (point == 1 && playing) {
 
             if (input.value == random) {
                 document.body.style.backgroundColor = "green"
                 message.innerHTML = "You are winner!"
+                result.innerHTML = random
                 point > highscore.innerHTML ? highscore.innerHTML = point : ""
+                score.innerHTML = point
+                input.disabled = true
+                check.style = "display:none"
+                again.style = "display:block"
+
+            } else if (!(input.value == random)) {
+                point--
+                score.innerHTML = point
+                document.body.style.backgroundColor = "red"
+                message.innerHTML = "Game Over!!!"
+                result.innerHTML = random
+                score.innerHTML = 0
                 input.disabled = true
                 check.style = "display:none"
                 again.style = "display:block"
                 playing = false
 
+            }
+
+        } else if (point > 1 && playing) {
+
+            if (input.value == random) {
+                document.body.style.backgroundColor = "green"
+                message.innerHTML = "You are winner!"
+                result.innerHTML = random
+                point > highscore.innerHTML ? highscore.innerHTML = point : ""
+                score.innerHTML = point
+                input.disabled = true
+                check.style = "display:none"
+                again.style = "display:block"
+                playing = false
 
             } else if (input.value > random) {
+                point--
+                score.innerHTML = point
                 document.body.style.backgroundColor = "orange"
                 message.innerHTML = `${input.value} is high`
                 input.value = ""
                 input.focus()
 
             } else if (input.value < random) {
+                point--
+                console.log(point)
+                score.innerHTML = point
                 document.body.style.backgroundColor = "blue"
                 message.innerHTML = `${input.value} is low`
                 input.value = ""
@@ -67,15 +110,6 @@ check.onclick = () => {
 
             }
         }
-    } else if (point == 1) {
-        document.body.style.backgroundColor = "red"
-        message.innerHTML = "Game Over!!!"
-        score.innerHTML = 0
-        input.disabled = true
-        input.value = ""
-        check.style = "display:none"
-        again.style = "display:block"
-        playing = false
     }
     input.focus()
 }
@@ -97,6 +131,7 @@ again.onclick = () => {
     again.style = "display:none"
     check.style = "display:block"
 
+    result.innerHTML = "?"
     message.innerHTML = "Start guessing..."
     score.innerHTML = "10"
 
