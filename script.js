@@ -36,7 +36,7 @@ check.onclick = () => {
     input.style.backgroundColor = ""
 
     if (input.value < 1 || input.value > 50) {
-        message.innerHTML = `Please<br>Between1 and 50`
+        message.innerHTML = `Please<br>Between 1 and 50`
         input.style.backgroundColor = "red"
         document.body.style.backgroundColor = "#222"
 
