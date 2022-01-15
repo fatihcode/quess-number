@@ -41,24 +41,14 @@ check.onclick = () => {
         document.body.style.backgroundColor = "#222"
 
     } else {
-        if (point == 0) {
-            document.body.style.backgroundColor = "red"
-            message.innerHTML = "Game Over!!!"
-            result.innerHTML = random
-            score.innerHTML = 0
-            input.disabled = true
-            input.value = ""
-            check.style = "display:none"
-            again.style = "display:block"
-            playing = false
 
-        } else if (point == 1 && playing) {
+        if (point == 1 && playing) {
 
             if (input.value == random) {
                 document.body.style.backgroundColor = "green"
                 message.innerHTML = "You are winner!"
                 result.innerHTML = random
-                point > highscore.innerHTML ? highscore.innerHTML = point : ""
+                point > highscore.innerHTML ? highscore.innerHTML = point : "";
                 score.innerHTML = point
                 input.disabled = true
                 check.style = "display:none"
@@ -84,7 +74,7 @@ check.onclick = () => {
                 document.body.style.backgroundColor = "green"
                 message.innerHTML = "You are winner!"
                 result.innerHTML = random
-                point > highscore.innerHTML ? highscore.innerHTML = point : ""
+                point > highscore.innerHTML ? highscore.innerHTML = point : "";
                 score.innerHTML = point
                 input.disabled = true
                 check.style = "display:none"
@@ -101,7 +91,6 @@ check.onclick = () => {
 
             } else if (input.value < random) {
                 point--
-                console.log(point)
                 score.innerHTML = point
                 document.body.style.backgroundColor = "blue"
                 message.innerHTML = `${input.value} is low`
