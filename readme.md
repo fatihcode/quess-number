@@ -1,3 +1,3 @@
 # Guess My Number!
 
-live: [https://fatihqaz.github.io/quess-number/](https://fatihqaz.github.io/quess-number/)
+live: [https://fatihcode.github.io/quess-number/](https://fatihcode.github.io/quess-number/)
